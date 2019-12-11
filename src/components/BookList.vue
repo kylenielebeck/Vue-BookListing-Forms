@@ -10,7 +10,7 @@
       <option v-for="filter in filters">{{ filter }}</option>
     </select>
     <ul>
-      <book-item v-for='books in filteredBooks' :key='book.id' :book='book'></book-item>
+      <book-item v-for='book in filteredBooks' :key='book.id' :book='book'></book-item>
     </ul>
     <br><hr>
     <book-form @addBook='appendBook'></book-form>
@@ -52,6 +52,8 @@ export default {
     appendBook(bookData) {
       this.books.push({ title: bookData.bookTitle, author: bookData.bookAuthor, finishedReading: bookData.finishedReading, ownership: bookData.ownership });
     },
+  },
+  computed: {
     filteredBooks() {
       return _.fileter(this.books, ["ownership", this.holding]);
     }
