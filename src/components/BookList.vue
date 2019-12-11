@@ -62,8 +62,8 @@ export default {
     searchedBooks() {
       const searchFilter = book => {
         return book.title.toLowerCase().match(this.searchInput.toLowerCase());
-        return _.filter(this.books, searchFilter);
-      }
+      };
+      return _.filter(this.books, searchFilter);
     }
   }
 };
